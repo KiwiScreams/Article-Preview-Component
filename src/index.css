@@ -7,6 +7,7 @@
   text-decoration: none;
   border: none;
   outline: none;
+  transition: 0.3s;
 }
 :root
 {
@@ -34,14 +35,13 @@ body
 }
 .container
 {
-  width: 730px;
+  width: 800px;
   background-color: var(--white-clr);
   box-shadow: 0 40px 40px -10px #cad6e280;
   border-radius: 10px;
   display: flex;
   overflow: hidden;
-  height: 280px;
-  padding: 0;
+  height: 260px;
 }
 .container .text-container
 {
@@ -77,7 +77,6 @@ body
 .container .image-container img
 {
   width: 100%;
-  /* height: 100%; */
 }
 .container .profile-container
 {
@@ -109,6 +108,17 @@ body
   height: 32px;
   border-radius: 50%;
   float: right;
+  cursor: pointer;
+  position: relative;
+}
+.container .profile-container button:hover svg path
+{
+  fill: var(--white-clr);
+}
+.container .profile-container button:hover,
+.container .profile-container button:active
+{
+  background-color: var(--medium-gray-clr);
 }
 .container .profile-info p:nth-child(1)
 {
@@ -122,4 +132,48 @@ body
   color: var(--light-gray-clr);
   font-weight: var(--font-weight-500);
   letter-spacing: var(--letter-spacing-012);
+}
+.nav-container
+{
+  /* width: 280px; */
+  padding: 18px 30px 18px 38px;
+  border-radius: 10px;
+  background-color: var(--dark-clr);
+  position: absolute;
+  top: -50px;
+  right: 0;
+}
+.nav-container .nav
+{
+  position: relative;
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+.container .rel
+{
+  position: relative;
+}
+.nav-container .nav .icons
+{
+  display: flex;
+  gap: 16px;
+}
+.nav-container .nav .triangle
+{
+  left: 50%;
+  bottom: -20px;
+  /* transform: translate(-50%, -50%); */
+  background-color: green;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  z-index: 2;
+}
+.nav-container .nav span
+{
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-500);
+  letter-spacing: 5px;
+  color: var(--light-gray-clr);
 }
