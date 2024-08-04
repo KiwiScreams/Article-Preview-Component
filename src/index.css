@@ -40,7 +40,7 @@ body
   box-shadow: 0 40px 40px -10px #cad6e280;
   border-radius: 10px;
   display: flex;
-  overflow: hidden;
+  /* overflow: hidden; */
   height: 260px;
 }
 .container .text-container
@@ -111,12 +111,13 @@ body
   cursor: pointer;
   position: relative;
 }
+.container .profile-container button.active svg path,
 .container .profile-container button:hover svg path
 {
   fill: var(--white-clr);
 }
 .container .profile-container button:hover,
-.container .profile-container button:active
+.container .profile-container button.active
 {
   background-color: var(--medium-gray-clr);
 }
@@ -135,13 +136,26 @@ body
 }
 .nav-container
 {
-  /* width: 280px; */
   padding: 18px 30px 18px 38px;
   border-radius: 10px;
   background-color: var(--dark-clr);
   position: absolute;
-  top: -50px;
-  right: 0;
+  top: -80px;
+  right: -105px;
+}
+.nav-container
+{
+  transition: opacity 0.3s ease-in-out;
+}
+.nav-container.hidden
+{
+  opacity: 0;
+  visibility: hidden;
+}
+.nav-container.visible
+{
+  opacity: 1;
+  visibility: visible;
 }
 .nav-container .nav
 {
@@ -162,13 +176,17 @@ body
 .nav-container .nav .triangle
 {
   left: 50%;
-  bottom: -20px;
-  /* transform: translate(-50%, -50%); */
-  background-color: green;
+  transform: translate(-50%, 0);
+  bottom: -25px;
   width: 10px;
   height: 10px;
   position: absolute;
   z-index: 2;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 10px 0 10px;
+  border-color: var(--dark-clr) transparent transparent transparent;
 }
 .nav-container .nav span
 {

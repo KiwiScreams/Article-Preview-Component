@@ -1,7 +1,12 @@
 import avatar from "./assets/images/avatar-michelle.jpg";
 import arrow from "./assets/images/icon-share.svg";
 import Nav from "./Nav";
+import { useState } from "react";
 function App() {
+  const [isVisible, setIsVisible] = useState(false);
+  const handleToggleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
   return (
     <>
       <div className="container">
@@ -27,7 +32,10 @@ function App() {
               </div>
             </div>
             <div className="rel">
-              <button>
+              <button
+                onClick={handleToggleVisibility}
+                className={isVisible ? "active" : ""}
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13">
                   <path
                     fill="#6E8098"
@@ -35,7 +43,7 @@ function App() {
                   />
                 </svg>
               </button>
-              <Nav />
+              <Nav isVisible={isVisible} />
             </div>
           </div>
         </div>
