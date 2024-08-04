@@ -5,6 +5,8 @@
   box-sizing: border-box;
   list-style-type: none;
   text-decoration: none;
+  border: none;
+  outline: none;
 }
 :root
 {
@@ -18,7 +20,106 @@
   --font-weight-500: 500;
   --font-size-20: 20px;
   --font-size-14: 14px;
-  --line-heoght-20: 20px;
+  --line-height-28: 28px;
   --letter-spacing-025: 0.25;
   --letter-spacing-012: 0.12;
+}
+body
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+.container
+{
+  width: 730px;
+  background-color: var(--white-clr);
+  box-shadow: 0 40px 40px -10px #cad6e280;
+  border-radius: 10px;
+  display: flex;
+  overflow: hidden;
+  height: 280px;
+  padding: 0;
+}
+.container .text-container
+{
+  padding: 32px 40px;
+  width: fit-content;
+}
+.container .text-container h3
+{
+  font-size: var(--font-size-20);
+  font-weight: var(--font-weight-700);
+  color: var(--dark-clr);
+  line-height: var(--line-heoght-20);
+  letter-spacing: var(--letter-spacing-025);
+  margin-bottom: 12px;
+}
+.container .text-container .text
+{
+  color: var(--medium-gray-clr);
+  font-size: var(--font-size-14);
+  letter-spacing: var(--letter-spacing-025);
+  line-height: var(--line-height-28);
+  margin-bottom: 20px;
+}
+.container .image-container
+{
+  width: 60%;
+  aspect-ratio: 1;
+  background-size: 100% 100%;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-image: url(./assets/images/drawers.jpg);
+}
+.container .image-container img
+{
+  width: 100%;
+  /* height: 100%; */
+}
+.container .profile-container
+{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container .profile-container .profile
+{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.container .profile-container .avatar
+{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.container .profile-container .avatar img
+{
+  width: 100%;
+}
+.container .profile-container button
+{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  float: right;
+}
+.container .profile-info p:nth-child(1)
+{
+  color: var(--dark-clr);
+  font-size: var(--font-size-14);
+  letter-spacing: var(--letter-spacing-012);
+  font-weight: var(--font-weight-700);
+}
+.container .profile-info p:nth-child(2)
+{
+  color: var(--light-gray-clr);
+  font-weight: var(--font-weight-500);
+  letter-spacing: var(--letter-spacing-012);
 }
