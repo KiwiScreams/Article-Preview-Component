@@ -2,11 +2,13 @@ import avatar from "./assets/images/avatar-michelle.jpg";
 import arrow from "./assets/images/icon-share.svg";
 import Nav from "./Nav";
 import { useState } from "react";
+import { useCallback } from "react";
 function App() {
   const [isVisible, setIsVisible] = useState(false);
-  const handleToggleVisibility = () => {
+  const handleToggleVisibility = useCallback(() => {
     setIsVisible(!isVisible);
-  };
+  }, [isVisible]);
+
   return (
     <>
       <div className="container">
@@ -43,7 +45,10 @@ function App() {
                   />
                 </svg>
               </button>
-              <Nav isVisible={isVisible} />
+              <Nav
+                isVisible={isVisible}
+                handleToggleVisibility={handleToggleVisibility}
+              />
             </div>
           </div>
         </div>

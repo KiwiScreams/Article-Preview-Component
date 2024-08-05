@@ -186,13 +186,8 @@ body {
     opacity: 1;
     visibility: visible;
   }
-  /* .container .profile-container .profile {
-  visibility: hidden;
-} */
   .nav-container {
     bottom: 0;
-    /* height: 50px; */
-    /* height: fit-content; */
     position: fixed;
     right: 0px;
     left: 0;
