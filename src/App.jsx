@@ -5,10 +5,15 @@ import { useState } from "react";
 import { useCallback } from "react";
 function App() {
   const [isVisible, setIsVisible] = useState(false);
-  const handleToggleVisibility = useCallback(() => {
-    setIsVisible(!isVisible);
-  }, [isVisible]);
+  const [isProfileVisible, setIsProfileVisible] = useState(false);
 
+  const handleToggleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
+
+  const handleToggleProfileVisibility = () => {
+    setIsProfileVisible(!isProfileVisible);
+  };
   return (
     <>
       <div className="container">
@@ -23,8 +28,11 @@ function App() {
             felt slightly bare and uninviting. I've got some simple tips to help
             you make any room feel complete.
           </p>
+
           <div className="profile-container">
-            <div className="profile">
+            <div
+              className={`profile ${isProfileVisible} ? "visible" : "hidden"}`}
+            >
               <div className="avatar">
                 <img src={avatar} alt="" />
               </div>
@@ -33,23 +41,35 @@ function App() {
                 <p>28 Jun 2020</p>
               </div>
             </div>
-            <div className="rel">
-              <button
-                onClick={handleToggleVisibility}
-                className={isVisible ? "active" : ""}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13">
-                  <path
-                    fill="#6E8098"
-                    d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z"
-                  />
-                </svg>
-              </button>
+            <div
+              className={`rel ${isProfileVisible} ? "visible" : "hidden"}`}
+            >
+                <button
+                  onClick={() => {
+                    handleToggleProfileVisibility();
+                    handleToggleVisibility();
+                  }}
+                  className={isVisible ? "active" : ""}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="15"
+                    height="13"
+                  >
+                    <path
+                      fill="#6E8098"
+                      d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z"
+                    />
+                  </svg>
+                </button>
+              </div>
+            {isVisible && (
               <Nav
                 isVisible={isVisible}
                 handleToggleVisibility={handleToggleVisibility}
+                handleToggleProfileVisibility={handleToggleProfileVisibility}
               />
-            </div>
+            )}
           </div>
         </div>
       </div>

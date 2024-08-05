@@ -88,7 +88,7 @@ body {
 .container .profile-container .avatar img {
   width: 100%;
 }
-.container .profile-container button {
+button {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -96,12 +96,12 @@ body {
   cursor: pointer;
   position: relative;
 }
-.container .profile-container button.active svg path,
-.container .profile-container button:hover svg path {
+button.active svg path,
+button:hover svg path {
   fill: var(--white-clr);
 }
-.container .profile-container button:hover,
-.container .profile-container button.active {
+button:hover,
+button.active {
   background-color: var(--medium-gray-clr);
 }
 .container .profile-info p:nth-child(1) {
@@ -168,6 +168,13 @@ body {
 .nav-container .nav .icons img {
   cursor: pointer;
 }
+.visible {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
 @media screen and (max-width: 900px) {
   .container .image-container {
     width: 100vw;
@@ -199,5 +206,14 @@ body {
   .nav-container .nav {
     justify-content: space-between;
     align-items: center;
+  }
+  .nav-container.nav-visible {
+    display: block;
+  }
+  .nav-container.nav-hidden {
+    display: none;
+  }
+  .container .text-container .text {
+    margin-bottom: 60px;
   }
 }
